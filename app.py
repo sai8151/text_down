@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from flask import Flask, request, render_template
 from gensim.summarization import summarize
 
-
+# path in server is /home/u900843168/.local/bin/
 app = Flask(__name__)
 
 @app.route('/')
