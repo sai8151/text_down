@@ -10,14 +10,14 @@ Before running the application, ensure you have the following installed:
 
 - Python
 - Flask
-- Gensim
+- gensim==3.6.0
 - ignore re.txt
 
 You can install Flask and Gensim using pip:
 
 ```bash
 pip install Flask
-pip install gensim
+pip install gensim==3.6.0
 ```
 
 ## Getting Started
