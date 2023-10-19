@@ -11,6 +11,7 @@ Before running the application, ensure you have the following installed:
 - Python
 - Flask
 - Gensim
+- ignore re.txt
 
 You can install Flask and Gensim using pip:
 
@@ -27,7 +28,7 @@ bash
 Copy code
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
+git clone https://github.com/sai8151/text_down
 cd your-repo
 ```
 
