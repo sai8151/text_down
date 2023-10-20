@@ -29,7 +29,7 @@ Copy code
 
 ```bash
 git clone https://github.com/sai8151/text_down
-cd your-repo
+cd text_down
 ```
 
 Run the Flask application:
