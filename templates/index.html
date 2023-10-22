@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Text Summarizer</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
-
 <body>
-    <h1>Text Summarizer</h1>
-    <form method="post" action="/summarize">
-        <textarea name="text" rows="10" cols="50" placeholder="Enter text to summarize"></textarea>
-        <br>
-        <input type="submit" value="Summarize">
-    </form>
-</body>
+    <div id="background-container">
+        <spline-viewer url="https://prod.spline.design/DqR0uhdyUi6ItGCn/scene.splinecode"></spline-viewer>
+    </div>
+<div class="container">
+    <div class="card">
+        <h3>Upload Files</h3>
+        <div class="drop_box">
+            <header>
+                <h4>Select File here</h4>
+            </header>
+            <p>Files Supported: PDF</p>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file"  accept=".pdf" id="fileID" class="btn" name="file" />
+                <input class="btn" type="submit" value="Upload">
+            </form>
+        </div>
+    </div>
+</div>
 
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.465/build/spline-viewer.js"></script>
+</body>
 </html>

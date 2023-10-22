@@ -11,12 +11,18 @@ Before running the application, ensure you have the following installed:
 - Python
 - Flask
 - Gensim
+- tempfile
+- pptx
+- pdfplumber
 
 You can install Flask and Gensim using pip:
 
 ```bash
 pip install Flask
 pip install gensim
+pip install tempfile
+pip install pptx
+pip install pdfplumber
 ```
 
 ## Getting Started
@@ -27,8 +33,8 @@ bash
 Copy code
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+git clone https://github.com/sai8151/text_down
+cd text_down
 ```
 
 Run the Flask application:
