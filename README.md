@@ -1,4 +1,4 @@
-"""
+
 
 # Text Summarizer Web Application
 
@@ -10,19 +10,28 @@ Before running the application, ensure you have the following installed:
 
 - Python
 - Flask
+<<<<<<< HEAD
 - Gensim
 - tempfile
 - pptx
 - pdfplumber
+=======
+- gensim==3.6.0
+- ignore re.txt
+>>>>>>> 59931000bf8170773a689154629c0e1e155092f2
 
 You can install Flask and Gensim using pip:
 
 ```bash
 pip install Flask
+<<<<<<< HEAD
 pip install gensim
 pip install tempfile
 pip install pptx
 pip install pdfplumber
+=======
+pip install gensim==3.6.0
+>>>>>>> 59931000bf8170773a689154629c0e1e155092f2
 ```
 
 ## Getting Started
