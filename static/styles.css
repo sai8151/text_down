@@ -8,11 +8,14 @@
     font-family: "Poppins", sans-serif;
 }
 
+/* nav bar start*/
+
+/* nav bar end */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     margin: 0;
-    display: flex;
+    display: block;
     justify-content: center;
     overflow: hidden;
     /* Hide any overflowing content from the background */
@@ -30,15 +33,6 @@ body {
     /* Place the background behind other content */
 }
 
- #mouse-follower {
-     position: absolute;
-     width: 20px;
-     height: 20px;
-     background-color: red;
-     border-radius: 50%;
-     pointer-events: none;
- }
-
 /* .container {
     height: 100vh;
     width: 100%;
@@ -54,24 +48,27 @@ body {
         padding: 20px;
 } */
 .container {
-    text-align: center;
-}
-
-.container {
     position: relative;
     z-index: 2;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* To center vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
     text-align: center;
     font-family: Arial, sans-serif;
-    color: #ffffff;
+    color: #000000;
     padding: 20px;
 }
+
 .card {
     border-radius: 10px;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     width: 600px;
     height: 260px;
-    background-color: #0707077a;
+    background-color: #ffffff;
+    border: 1px solid blue;
     padding: 10px 30px 40px;
+    
 }
 
 .card h3 {
@@ -87,14 +84,14 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 3px dotted #a3a3a3;
+    border: 3px dotted #7ba0f1;
     border-radius: 5px;
 }
 
 .drop_box h4 {
     font-size: 16px;
     font-weight: 400;
-    color: #ffffff;
+    color: #000000;
 }
 
 .drop_box p {
@@ -106,19 +103,20 @@ body {
 
 .btn {
     text-decoration: none;
-    background-color: #0058f059;
-    color: #ffffff;
+    background-color: #ebebeb;
+    color: #000000;
     padding: 10px 20px;
-    border: none;
+    border: 1px solid white;
+    border-radius: 10px;
     outline: none;
     transition: 0.3s;
 }
 
 .btn:hover {
     text-decoration: none;
-    background-color: #ffffff2a;
-    
-    color: #fdffff;
+    background-color: #ffffff;
+    border-radius: 15px;
+    color: #080808;
     padding: 10px 20px;
     border: none;
     outline: 1px solid #010101;
@@ -137,6 +135,12 @@ input::file-selector-button {
     font-weight: bold;
     color: dodgerblue;
     padding: 0.5em;
-    border: thin solid grey;
+    border: thin solid rgb(2, 2, 2);
     border-radius: 3px;
+}
+
+section{
+    display: grid;
+        grid-template-columns: 1 1 1;
+        gap: 10px;
 }

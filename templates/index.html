@@ -1,29 +1,196 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Text Summarizer</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <title>PPTFusion</title>
+    <style>
+        body {
+            position: absolute;
+            width: 100%;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            margin: 0;
+            /* overflow: hidden; */
+        }
+
+        .navbar {
+            background-color: #ffffff7e;
+            overflow: hidden;
+        }
+
+        .background-iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            /* Place it behind other content */
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #111;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #0000002a;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: flex;
+            height: 100vh;
+            color: white;
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 0px;
+            /* Enable flexbox layout */
+            flex-direction: column;
+            /* Stack content vertically */
+            justify-content: center;
+            /* Center vertically */
+            align-items: center;
+            /* Center horizontally */
+            min-height: 35rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            background-color: #ffffff1a;
+            color: rgb(255, 255, 255);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.137);
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #333;
+            color: rgb(255, 255, 255);
+            padding: 10px 0;
+        }
+
+        .btn {
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border: 1px solid white;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        #fileID {
+            display: none;
+        }
+
+        .upload-btn {
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid white;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .upload-btn:hover {
+            background-color: #ffffff;
+            color: black;
+        }
+
+        @media (max-width: 420px) {
+            body {
+                position: relative;
+            }
+
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div id="background-container">
-        <spline-viewer url="https://prod.spline.design/DqR0uhdyUi6ItGCn/scene.splinecode"></spline-viewer>
+    <!-- <iframe src='https://my.spline.design/untitled-25d11c81f678c0e7b3dbd77220e5458c/' class="background-iframe"
+        frameborder='0'></iframe> -->
+    <!-- <iframe src='https://my.spline.design/untitled-25d11c81f678c0e7b3dbd77220e5458c/' frameborder='0' width='100%' height='100%'></iframe>
+        <iframe src='https://my.spline.design/glasstypecopy-593424aa33b12be05d093c99f6039695/' frameborder='0' width='100%' height='100%'></iframe>
+        <iframe src='https://my.spline.design/draganddropbookpencilschoolcopy-334bb5447cdfdf4b9dd2d822de58ee5a/' frameborder='0' width='100%' height='100%'></iframe>
+        <iframe src='https://my.spline.design/cybersamuraiupdatedmaterial-6fa89e25380cd5753fa1b9f09eb4a85b/' frameborder='0'
+            width='100%' height='100%'></iframe> -->
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
     </div>
-<div class="container">
-    <div class="card">
-        <h3>Upload Files</h3>
-        <div class="drop_box">
-            <header>
-                <h4>Select File here</h4>
-            </header>
-            <p>Files Supported: PDF</p>
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file"  accept=".pdf" id="fileID" class="btn" name="file" />
-                <input class="btn" type="submit" value="Upload">
-            </form>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="card">
+                <h3>Upload pdf file to generate a ppt</h3>
+                <header>
+                    <h4>Select File here</h4>
+                </header>
+                <p>Files Supported: PDF</p>
+                <form action="/upload" method="post" enctype="multipart/form-data" onsubmit="return validateFile()">
+                    <input type="file" accept=".pdf" id="fileID" class="btn" name="file" />
+                    <label for="fileID" class="upload-btn">Choose File</label>
+                    <input class="btn" type="submit" value="Upload">
+                </form>
+                <div style="text-align: center; color:red;">
+                    <h6>File size &lt;1 MB and only PDF files are supported</h6>
+                </div>
+                <div class="col-md-4" id="contact">
+                    <h4>Contact Us</h4>
+                    <address>
+                        <p>Email: <a href="mailto:support@pptfussion.xyz">support@pptfussion.xyz</a></p>
+                        <!-- <p>Phone: <a href="tel:+91">+123-456-789</a></p> -->
+                        <!-- <p>Address: 123 Main St, City, Country</p> -->
+                    </address>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2023 PPTFusion. All rights reserved.</p>
         </div>
     </div>
-</div>
-
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.465/build/spline-viewer.js"></script>
 </body>
+<script>
+    function validateFile() {
+        var fileInput = document.getElementById('fileID');
+        if (fileInput.files.length > 0) {
+            var fileSize = fileInput.files[0].size; // in bytes
+            if (fileSize > 1024 * 1024) {
+                alert('File size exceeds the limit (1 MB)');
+                return false; // Prevent form submission
+            }
+        }
+        return true; // Continue with form submission
+    }
+</script>
+
 </html>
