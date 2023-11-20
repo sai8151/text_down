@@ -73,11 +73,11 @@ def create_ppt_from_summarized_content(pdf_path, output_pptx_path):
             # Use the first heading as the slide title
             title.text = headings[0]
         if content:
-            word_count = random.randint(100, 150)
+            word_count = random.randint(50, 100)
             summarized_content = summarize(
                 "\n".join(content), word_count=word_count)
             text_box = slide.shapes.add_textbox(
-                Inches(1), Inches(1), Inches(8), Inches(5))
+                Inches(1), Inches(1), Inches(5), Inches(5))
             text_frame = text_box.text_frame
             p = text_frame.add_paragraph()
             p.text = summarized_content
