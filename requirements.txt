@@ -1,0 +1,5 @@
+pip install Flask
+pip install tempfile
+pip install pptx
+pip install pdfplumber
+pip install gensim==3.6.0

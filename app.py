@@ -25,7 +25,6 @@ def success():
     if request.method == 'POST':
         f = request.files['file']
         f.save(f.filename)
-        # Set the path to your PDF file and the output PPTX file in a temporary directory
         pdf_path = f.filename
         output_pptx_path = tempfile.mktemp(suffix=".pptx")
         create_ppt_from_summarized_content(pdf_path, output_pptx_path)
@@ -77,7 +76,7 @@ def create_ppt_from_summarized_content(pdf_path, output_pptx_path):
             summarized_content = summarize(
                 "\n".join(content), word_count=word_count)
             text_box = slide.shapes.add_textbox(
-                Inches(1), Inches(1), Inches(5), Inches(5))
+                Inches(1), Inches(1), Inches(8), Inches(5))
             text_frame = text_box.text_frame
             p = text_frame.add_paragraph()
             p.text = summarized_content
