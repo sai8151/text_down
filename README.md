@@ -1,7 +1,8 @@
 # Text Summarizer Web Application
 
 This is a simple web application built using Flask that allows users to pdf and generate a ppt using Gensim's text summarization techniques.
-
+<br>
+Tested in linux 5.15.0-86-generic #96~20.04.1-Ubuntu SMP Thu Sep 21 13:23:37 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 ## Prerequisites
 
 Before running the application, ensure you have the following installed:
